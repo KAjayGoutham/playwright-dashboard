@@ -531,6 +531,12 @@ export default function PlaywrightDashboard({ data, initialData }: { data?: any;
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [selectedTest, setSelectedTest] = useState<TestCase | null>(null); // test object for modal
+  const [selectedSuiteMedia, setSelectedSuiteMedia] = useState<{
+    suiteFile: string;
+    project: string;
+    kind: 'screenshots' | 'videos';
+    items: { testTitle: string; att: TestAttachment }[];
+  } | null>(null);
   const [isSimulating, setIsSimulating] = useState<boolean>(false);
   const [copiedSnippet, setCopiedSnippet] = useState<'config' | 'reporter' | null>(null);
   const [expandedSuites, setExpandedSuites] = useState<Record<number, boolean>>({ 0: true, 1: true, 2: true });
@@ -545,6 +551,71 @@ export default function PlaywrightDashboard({ data, initialData }: { data?: any;
   const toggleTestSteps = (testId: string, e: React.MouseEvent) => {
     e.stopPropagation();
     setExpandedTests(prev => ({ ...prev, [testId]: !prev[testId] }));
+  };
+
+  // Shared renderer for screenshot & video cards across test and suite modals
+  const renderMediaCard = (
+    att: TestAttachment,
+    idx: number,
+    kind: 'screenshots' | 'videos',
+    testTitle?: string
+  ) => {
+    const isVideo = kind === 'videos';
+    return (
+      <div key={idx} className={`rounded-xl border overflow-hidden ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
+        <div className={`px-3.5 py-2 border-b flex items-center justify-between gap-2 text-xs ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
+          <div className="flex items-center space-x-2 min-w-0">
+            {isVideo ? (
+              <Video className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+            ) : (
+              <ImageIcon className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            )}
+            <span className="font-mono font-medium truncate">
+              {testTitle ? `${testTitle} — ${att.name}` : att.name}
+            </span>
+            {att.size && <span className="text-[10px] text-slate-500 font-mono shrink-0">({att.size})</span>}
+          </div>
+          {isWebUrl(att.url) && (
+            <div className="flex items-center space-x-3 shrink-0">
+              <a href={att.url} download={att.name} className="text-slate-400 hover:text-cyan-400 flex items-center space-x-1">
+                <Download className="w-3 h-3" />
+                <span>Download</span>
+              </a>
+              <a href={att.url} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline flex items-center space-x-1">
+                <span>{isVideo ? 'Open' : 'Full Size'}</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          )}
+        </div>
+        {isWebUrl(att.url) ? (
+          isVideo ? (
+            <div className="p-3">
+              <video
+                controls
+                preload="metadata"
+                src={att.url}
+                className="w-full max-h-96 rounded-lg bg-black"
+              >
+                Your browser does not support embedded video playback.
+              </video>
+            </div>
+          ) : (
+            <a href={att.url} target="_blank" rel="noreferrer" className="block p-3">
+              <img
+                src={att.url}
+                alt={att.name}
+                className="w-full max-h-96 object-contain rounded-lg bg-slate-900/60"
+              />
+            </a>
+          )
+        ) : (
+          <div className="p-3 text-xs text-amber-400 font-mono">
+            Local path cannot be loaded by browser ({att.url || 'no path'}). Copy artifacts to public/artifacts/ using mtricbase-reporter.ts (see Integration tab).
+          </div>
+        )}
+      </div>
+    );
   };
 
   // Recursive step timeline renderer (supports nested test.step & Playwright API steps)
@@ -1278,13 +1349,20 @@ export default MtricbaseReporter;`;
 
             {/* Test Suites Hierarchical Tree */}
             <div className="space-y-4">
-              {filteredSuites.map((suite, suiteIdx) => (
+              {filteredSuites.map((suite, suiteIdx) => {
+                const suiteScreenshots = suite.tests.flatMap((t) =>
+                  (t.attachments || []).filter(isImageAttachment).map((att) => ({ testTitle: t.title, att }))
+                );
+                const suiteVideos = suite.tests.flatMap((t) =>
+                  (t.attachments || []).filter(isVideoAttachment).map((att) => ({ testTitle: t.title, att }))
+                );
+                return (
                 <div key={suiteIdx} className={`rounded-2xl border overflow-hidden ${darkMode ? 'bg-slate-900/80 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
 
                   {/* Suite Header */}
                   <div
                     onClick={() => toggleSuite(suiteIdx)}
-                    className={`px-5 py-3.5 flex items-center justify-between cursor-pointer transition-colors ${darkMode ? 'bg-slate-950/60 hover:bg-slate-800/50' : 'bg-slate-100/70 hover:bg-slate-100'}`}
+                    className={`px-5 py-3.5 flex flex-wrap items-center justify-between gap-3 cursor-pointer transition-colors ${darkMode ? 'bg-slate-950/60 hover:bg-slate-800/50' : 'bg-slate-100/70 hover:bg-slate-100'}`}
                   >
                     <div className="flex items-center space-x-3">
                       {expandedSuites[suiteIdx] ? <ChevronDown className="w-4 h-4 text-cyan-400" /> : <ChevronRight className="w-4 h-4 text-cyan-400" />}
@@ -1295,7 +1373,45 @@ export default MtricbaseReporter;`;
                       </span>
                     </div>
 
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-3">
+                      {suiteScreenshots.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedSuiteMedia({
+                              suiteFile: suite.file,
+                              project: suite.project,
+                              kind: 'screenshots',
+                              items: suiteScreenshots,
+                            });
+                          }}
+                          className={`inline-flex items-center space-x-1.5 text-[11px] px-2.5 py-1 rounded-lg font-mono font-semibold border transition-colors ${darkMode ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/20' : 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'}`}
+                          title="View suite screenshots"
+                        >
+                          <ImageIcon className="w-3.5 h-3.5" />
+                          <span>Screenshot{suiteScreenshots.length > 1 ? 's' : ''} ({suiteScreenshots.length})</span>
+                        </button>
+                      )}
+                      {suiteVideos.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedSuiteMedia({
+                              suiteFile: suite.file,
+                              project: suite.project,
+                              kind: 'videos',
+                              items: suiteVideos,
+                            });
+                          }}
+                          className={`inline-flex items-center space-x-1.5 text-[11px] px-2.5 py-1 rounded-lg font-mono font-semibold border transition-colors ${darkMode ? 'bg-purple-500/10 border-purple-500/30 text-purple-300 hover:bg-purple-500/20' : 'bg-purple-50 border-purple-200 text-purple-700 hover:bg-purple-100'}`}
+                          title="Watch suite videos"
+                        >
+                          <Video className="w-3.5 h-3.5" />
+                          <span>Video{suiteVideos.length > 1 ? 's' : ''} ({suiteVideos.length})</span>
+                        </button>
+                      )}
                       <span className="text-xs text-slate-400 font-mono">{(suite.duration / 1000).toFixed(2)}s</span>
                       <span className={`text-xs font-bold font-mono px-2.5 py-0.5 rounded-full ${suite.status === 'passed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
                         {suite.status}
@@ -1375,7 +1491,8 @@ export default MtricbaseReporter;`;
                   )}
 
                 </div>
-              ))}
+                );
+              })}
 
               {filteredSuites.length === 0 && (
                 <div className={`p-12 text-center rounded-2xl border space-y-3 ${darkMode ? 'bg-slate-900/80 border-slate-800' : 'bg-white border-slate-200'}`}>
@@ -1565,42 +1682,7 @@ export default MtricbaseReporter;`;
                           <span>Screenshots ({screenshots.length})</span>
                         </div>
                         <div className="grid grid-cols-1 gap-4">
-                          {screenshots.map((att, idx) => (
-                            <div key={idx} className={`rounded-xl border overflow-hidden ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
-                              <div className={`px-3.5 py-2 border-b flex items-center justify-between text-xs ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
-                                <div className="flex items-center space-x-2 min-w-0">
-                                  <ImageIcon className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                                  <span className="font-mono font-medium truncate">{att.name}</span>
-                                  {att.size && <span className="text-[10px] text-slate-500 font-mono">({att.size})</span>}
-                                </div>
-                                {isWebUrl(att.url) && (
-                                  <div className="flex items-center space-x-3 shrink-0">
-                                    <a href={att.url} download={att.name} className="text-slate-400 hover:text-cyan-400 flex items-center space-x-1">
-                                      <Download className="w-3 h-3" />
-                                      <span>Download</span>
-                                    </a>
-                                    <a href={att.url} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline flex items-center space-x-1">
-                                      <span>Full Size</span>
-                                      <ExternalLink className="w-3 h-3" />
-                                    </a>
-                                  </div>
-                                )}
-                              </div>
-                              {isWebUrl(att.url) ? (
-                                <a href={att.url} target="_blank" rel="noreferrer" className="block p-3">
-                                  <img
-                                    src={att.url}
-                                    alt={att.name}
-                                    className="w-full max-h-96 object-contain rounded-lg bg-slate-900/60"
-                                  />
-                                </a>
-                              ) : (
-                                <div className="p-3 text-xs text-amber-400 font-mono">
-                                  Local path cannot be loaded by browser ({att.url || 'no path'}). Copy artifacts to public/artifacts/ using mtricbase-reporter.ts (see Integration tab).
-                                </div>
-                              )}
-                            </div>
-                          ))}
+                          {screenshots.map((att, idx) => renderMediaCard(att, idx, 'screenshots'))}
                         </div>
                       </div>
                     )}
@@ -1613,45 +1695,7 @@ export default MtricbaseReporter;`;
                           <span>Execution Videos ({videos.length})</span>
                         </div>
                         <div className="space-y-4">
-                          {videos.map((att, idx) => (
-                            <div key={idx} className={`rounded-xl border overflow-hidden ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
-                              <div className={`px-3.5 py-2 border-b flex items-center justify-between text-xs ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
-                                <div className="flex items-center space-x-2 min-w-0">
-                                  <Video className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-                                  <span className="font-mono font-medium truncate">{att.name}</span>
-                                  {att.size && <span className="text-[10px] text-slate-500 font-mono">({att.size})</span>}
-                                </div>
-                                {isWebUrl(att.url) && (
-                                  <div className="flex items-center space-x-3 shrink-0">
-                                    <a href={att.url} download={att.name} className="text-slate-400 hover:text-cyan-400 flex items-center space-x-1">
-                                      <Download className="w-3 h-3" />
-                                      <span>Download</span>
-                                    </a>
-                                    <a href={att.url} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline flex items-center space-x-1">
-                                      <span>Open</span>
-                                      <ExternalLink className="w-3 h-3" />
-                                    </a>
-                                  </div>
-                                )}
-                              </div>
-                              {isWebUrl(att.url) ? (
-                                <div className="p-3">
-                                  <video
-                                    controls
-                                    preload="metadata"
-                                    src={att.url}
-                                    className="w-full max-h-96 rounded-lg bg-black"
-                                  >
-                                    Your browser does not support embedded video playback.
-                                  </video>
-                                </div>
-                              ) : (
-                                <div className="p-3 text-xs text-amber-400 font-mono">
-                                  Local video path cannot be played by browser ({att.url || 'no path'}). Copy videos to public/artifacts/ using mtricbase-reporter.ts (see Integration tab).
-                                </div>
-                              )}
-                            </div>
-                          ))}
+                          {videos.map((att, idx) => renderMediaCard(att, idx, 'videos'))}
                         </div>
                       </div>
                     )}
@@ -1690,6 +1734,46 @@ export default MtricbaseReporter;`;
 
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* --- SUITE SCREENSHOTS & VIDEOS MODAL --- */}
+      {selectedSuiteMedia && (
+        <div
+          onClick={() => setSelectedSuiteMedia(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto animate-fadeIn"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={`w-full max-w-3xl rounded-2xl border shadow-2xl overflow-hidden flex flex-col max-h-[90vh] ${darkMode ? 'bg-slate-900 border-slate-800 text-slate-100' : 'bg-white border-slate-200 text-slate-800'}`}
+          >
+            <div className={`px-6 py-4 border-b flex items-center justify-between ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-100 border-slate-200'}`}>
+              <div className="flex items-center space-x-3">
+                {selectedSuiteMedia.kind === 'videos' ? (
+                  <Video className="w-5 h-5 text-purple-400" />
+                ) : (
+                  <ImageIcon className="w-5 h-5 text-indigo-400" />
+                )}
+                <div>
+                  <h3 className="font-bold text-sm">
+                    {selectedSuiteMedia.suiteFile} — {selectedSuiteMedia.kind === 'videos' ? 'Execution Videos' : 'Screenshots'} ({selectedSuiteMedia.items.length})
+                  </h3>
+                  <div className="text-xs text-slate-400 font-mono uppercase">{selectedSuiteMedia.project}</div>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedSuiteMedia(null)}
+                className={`p-2 rounded-xl text-xs font-bold border transition-colors ${darkMode ? 'bg-slate-900 border-slate-800 hover:bg-slate-800 text-slate-300' : 'bg-white border-slate-200 hover:bg-slate-100 text-slate-700'}`}
+              >
+                ✕ Close
+              </button>
+            </div>
+            <div className="p-6 space-y-4 overflow-y-auto flex-1">
+              {selectedSuiteMedia.items.map(({ testTitle, att }, idx) =>
+                renderMediaCard(att, idx, selectedSuiteMedia.kind, testTitle)
+              )}
+            </div>
           </div>
         </div>
       )}

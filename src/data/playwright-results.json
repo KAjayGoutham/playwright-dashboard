@@ -1,11 +1,11 @@
 {
-  "runId": "run-mwmdmcfm",
-  "timestamp": "2026-11-18T17:09:38.290Z",
+  "runId": "run-mwmvnhpi",
+  "timestamp": "2026-11-19T01:34:24.870Z",
   "environment": "Local (C:\\playwright\\tests)",
-  "totalDurationMs": 9514,
+  "totalDurationMs": 1977,
   "stats": {
-    "total": 6,
-    "passed": 6,
+    "total": 2,
+    "passed": 2,
     "failed": 0,
     "flaky": 0,
     "skipped": 0,
@@ -13,705 +13,44 @@
   },
   "projects": [
     {
-      "name": "firefox",
-      "tests": 2,
-      "passed": 2,
-      "failed": 0,
-      "duration": 5706
-    },
-    {
-      "name": "webkit",
-      "tests": 2,
-      "passed": 2,
-      "failed": 0,
-      "duration": 3582
-    },
-    {
       "name": "chromium",
       "tests": 2,
       "passed": 2,
       "failed": 0,
-      "duration": 17143
+      "duration": 2321
     }
   ],
   "suites": [
     {
       "file": "example.spec.ts",
-      "project": "firefox",
-      "duration": 5706,
-      "status": "passed",
-      "tests": [
-        {
-          "id": "a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5-firefox",
-          "title": "has title",
-          "status": "passed",
-          "durationMs": 2604,
-          "retries": 0,
-          "browser": "firefox",
-          "steps": [
-            {
-              "title": "Before Hooks",
-              "category": "hook",
-              "durationMs": 1604,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"browser\"",
-                  "category": "fixture",
-                  "durationMs": 594,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Launch browser",
-                      "category": "pw:api",
-                      "durationMs": 591,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 145,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create context",
-                      "category": "pw:api",
-                      "durationMs": 140,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 831,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create page",
-                      "category": "pw:api",
-                      "durationMs": 830,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Navigate",
-              "category": "pw:api",
-              "durationMs": 1102,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Expect \"toHaveTitle\"",
-              "category": "expect",
-              "durationMs": 125,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "After Hooks",
-              "category": "hook",
-              "durationMs": 402,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 0,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 280,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Close context",
-                      "category": "pw:api",
-                      "durationMs": 268,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "logs": [],
-          "attachments": [
-            {
-              "type": "image/png",
-              "name": "screenshot.png",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5-firefox-0-screenshot.png",
-              "size": "121.0 KB"
-            },
-            {
-              "type": "video/webm",
-              "name": "video.webm",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5-firefox-1-video.webm",
-              "size": "130.2 KB"
-            }
-          ]
-        },
-        {
-          "id": "a30a6eba6312f6b87ea5-bfe080d6fe34297f494c-firefox",
-          "title": "get started link",
-          "status": "passed",
-          "durationMs": 3102,
-          "retries": 0,
-          "browser": "firefox",
-          "steps": [
-            {
-              "title": "Before Hooks",
-              "category": "hook",
-              "durationMs": 2019,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"browser\"",
-                  "category": "fixture",
-                  "durationMs": 1056,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Launch browser",
-                      "category": "pw:api",
-                      "durationMs": 1054,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 151,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create context",
-                      "category": "pw:api",
-                      "durationMs": 148,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 797,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create page",
-                      "category": "pw:api",
-                      "durationMs": 796,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Navigate",
-              "category": "pw:api",
-              "durationMs": 750,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Click",
-              "category": "pw:api",
-              "durationMs": 491,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Expect \"toBeVisible\"",
-              "category": "expect",
-              "durationMs": 521,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "After Hooks",
-              "category": "hook",
-              "durationMs": 387,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 0,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 167,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Close context",
-                      "category": "pw:api",
-                      "durationMs": 157,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "logs": [],
-          "attachments": [
-            {
-              "type": "image/png",
-              "name": "screenshot.png",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-bfe080d6fe34297f494c-firefox-0-screenshot.png",
-              "size": "74.2 KB"
-            },
-            {
-              "type": "video/webm",
-              "name": "video.webm",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-bfe080d6fe34297f494c-firefox-1-video.webm",
-              "size": "260.3 KB"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "file": "example.spec.ts",
-      "project": "webkit",
-      "duration": 3582,
-      "status": "passed",
-      "tests": [
-        {
-          "id": "a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2-webkit",
-          "title": "has title",
-          "status": "passed",
-          "durationMs": 1525,
-          "retries": 0,
-          "browser": "webkit",
-          "steps": [
-            {
-              "title": "Before Hooks",
-              "category": "hook",
-              "durationMs": 317,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"browser\"",
-                  "category": "fixture",
-                  "durationMs": 70,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Launch browser",
-                      "category": "pw:api",
-                      "durationMs": 69,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 18,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create context",
-                      "category": "pw:api",
-                      "durationMs": 16,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 217,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create page",
-                      "category": "pw:api",
-                      "durationMs": 216,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Navigate",
-              "category": "pw:api",
-              "durationMs": 850,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Expect \"toHaveTitle\"",
-              "category": "expect",
-              "durationMs": 28,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "After Hooks",
-              "category": "hook",
-              "durationMs": 414,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 0,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 120,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Close context",
-                      "category": "pw:api",
-                      "durationMs": 113,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "logs": [],
-          "attachments": [
-            {
-              "type": "image/png",
-              "name": "screenshot.png",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2-webkit-0-screenshot.png",
-              "size": "223.0 KB"
-            },
-            {
-              "type": "video/webm",
-              "name": "video.webm",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2-webkit-1-video.webm",
-              "size": "100.4 KB"
-            }
-          ]
-        },
-        {
-          "id": "a30a6eba6312f6b87ea5-1eb159041d56409ed83c-webkit",
-          "title": "get started link",
-          "status": "passed",
-          "durationMs": 2057,
-          "retries": 0,
-          "browser": "webkit",
-          "steps": [
-            {
-              "title": "Before Hooks",
-              "category": "hook",
-              "durationMs": 230,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"browser\"",
-                  "category": "fixture",
-                  "durationMs": 40,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Launch browser",
-                      "category": "pw:api",
-                      "durationMs": 38,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 18,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create context",
-                      "category": "pw:api",
-                      "durationMs": 15,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 158,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create page",
-                      "category": "pw:api",
-                      "durationMs": 157,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Navigate",
-              "category": "pw:api",
-              "durationMs": 1138,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Click",
-              "category": "pw:api",
-              "durationMs": 167,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Expect \"toBeVisible\"",
-              "category": "expect",
-              "durationMs": 274,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "After Hooks",
-              "category": "hook",
-              "durationMs": 298,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 1,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 76,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Close context",
-                      "category": "pw:api",
-                      "durationMs": 71,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "logs": [],
-          "attachments": [
-            {
-              "type": "image/png",
-              "name": "screenshot.png",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-1eb159041d56409ed83c-webkit-0-screenshot.png",
-              "size": "192.7 KB"
-            },
-            {
-              "type": "video/webm",
-              "name": "video.webm",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-1eb159041d56409ed83c-webkit-1-video.webm",
-              "size": "191.3 KB"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "file": "example.spec.ts",
       "project": "chromium",
-      "duration": 17143,
+      "duration": 2321,
       "status": "passed",
       "tests": [
-        {
-          "id": "a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium",
-          "title": "get started link",
-          "status": "passed",
-          "durationMs": 8347,
-          "retries": 0,
-          "browser": "chromium",
-          "steps": [
-            {
-              "title": "Before Hooks",
-              "category": "hook",
-              "durationMs": 386,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"browser\"",
-                  "category": "fixture",
-                  "durationMs": 117,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Launch browser",
-                      "category": "pw:api",
-                      "durationMs": 114,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 11,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create context",
-                      "category": "pw:api",
-                      "durationMs": 8,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                },
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 240,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Create page",
-                      "category": "pw:api",
-                      "durationMs": 240,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Navigate",
-              "category": "pw:api",
-              "durationMs": 7666,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Click",
-              "category": "pw:api",
-              "durationMs": 121,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "Expect \"toBeVisible\"",
-              "category": "expect",
-              "durationMs": 106,
-              "status": "passed",
-              "steps": []
-            },
-            {
-              "title": "After Hooks",
-              "category": "hook",
-              "durationMs": 201,
-              "status": "passed",
-              "steps": [
-                {
-                  "title": "Fixture \"page\"",
-                  "category": "fixture",
-                  "durationMs": 0,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Fixture \"context\"",
-                  "category": "fixture",
-                  "durationMs": 86,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Close context",
-                      "category": "pw:api",
-                      "durationMs": 77,
-                      "status": "passed",
-                      "steps": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "logs": [],
-          "attachments": [
-            {
-              "type": "image/png",
-              "name": "screenshot.png",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-0-screenshot.png",
-              "size": "94.1 KB"
-            },
-            {
-              "type": "video/webm",
-              "name": "video.webm",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-1-video.webm",
-              "size": "224.4 KB"
-            }
-          ]
-        },
         {
           "id": "a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium",
           "title": "has title",
           "status": "passed",
-          "durationMs": 8796,
+          "durationMs": 1006,
           "retries": 0,
           "browser": "chromium",
           "steps": [
             {
               "title": "Before Hooks",
               "category": "hook",
-              "durationMs": 428,
+              "durationMs": 259,
               "status": "passed",
               "steps": [
                 {
                   "title": "Fixture \"browser\"",
                   "category": "fixture",
-                  "durationMs": 121,
+                  "durationMs": 98,
                   "status": "passed",
                   "steps": [
                     {
                       "title": "Launch browser",
                       "category": "pw:api",
-                      "durationMs": 119,
+                      "durationMs": 93,
                       "status": "passed",
                       "steps": []
                     }
@@ -726,7 +65,7 @@
                     {
                       "title": "Create context",
                       "category": "pw:api",
-                      "durationMs": 9,
+                      "durationMs": 8,
                       "status": "passed",
                       "steps": []
                     }
@@ -735,13 +74,13 @@
                 {
                   "title": "Fixture \"page\"",
                   "category": "fixture",
-                  "durationMs": 281,
+                  "durationMs": 131,
                   "status": "passed",
                   "steps": [
                     {
                       "title": "Create page",
                       "category": "pw:api",
-                      "durationMs": 280,
+                      "durationMs": 130,
                       "status": "passed",
                       "steps": []
                     }
@@ -752,21 +91,21 @@
             {
               "title": "Navigate",
               "category": "pw:api",
-              "durationMs": 8203,
+              "durationMs": 536,
               "status": "passed",
               "steps": []
             },
             {
               "title": "Expect \"toHaveTitle\"",
               "category": "expect",
-              "durationMs": 74,
+              "durationMs": 70,
               "status": "passed",
               "steps": []
             },
             {
               "title": "After Hooks",
               "category": "hook",
-              "durationMs": 225,
+              "durationMs": 246,
               "status": "passed",
               "steps": [
                 {
@@ -779,13 +118,13 @@
                 {
                   "title": "Fixture \"context\"",
                   "category": "fixture",
-                  "durationMs": 68,
+                  "durationMs": 85,
                   "status": "passed",
                   "steps": [
                     {
                       "title": "Close context",
                       "category": "pw:api",
-                      "durationMs": 59,
+                      "durationMs": 76,
                       "status": "passed",
                       "steps": []
                     }
@@ -799,14 +138,143 @@
             {
               "type": "image/png",
               "name": "screenshot.png",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-0-screenshot.png",
+              "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-0-screenshot.png",
               "size": "298.9 KB"
             },
             {
               "type": "video/webm",
               "name": "video.webm",
-              "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-1-video.webm",
-              "size": "172.9 KB"
+              "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-1-video.webm",
+              "size": "110.3 KB"
+            }
+          ]
+        },
+        {
+          "id": "a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium",
+          "title": "get started link",
+          "status": "passed",
+          "durationMs": 1315,
+          "retries": 0,
+          "browser": "chromium",
+          "steps": [
+            {
+              "title": "Before Hooks",
+              "category": "hook",
+              "durationMs": 253,
+              "status": "passed",
+              "steps": [
+                {
+                  "title": "Fixture \"browser\"",
+                  "category": "fixture",
+                  "durationMs": 118,
+                  "status": "passed",
+                  "steps": [
+                    {
+                      "title": "Launch browser",
+                      "category": "pw:api",
+                      "durationMs": 116,
+                      "status": "passed",
+                      "steps": []
+                    }
+                  ]
+                },
+                {
+                  "title": "Fixture \"context\"",
+                  "category": "fixture",
+                  "durationMs": 13,
+                  "status": "passed",
+                  "steps": [
+                    {
+                      "title": "Create context",
+                      "category": "pw:api",
+                      "durationMs": 9,
+                      "status": "passed",
+                      "steps": []
+                    }
+                  ]
+                },
+                {
+                  "title": "Fixture \"page\"",
+                  "category": "fixture",
+                  "durationMs": 109,
+                  "status": "passed",
+                  "steps": [
+                    {
+                      "title": "Create page",
+                      "category": "pw:api",
+                      "durationMs": 107,
+                      "status": "passed",
+                      "steps": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Navigate",
+              "category": "pw:api",
+              "durationMs": 523,
+              "status": "passed",
+              "steps": []
+            },
+            {
+              "title": "Click",
+              "category": "pw:api",
+              "durationMs": 136,
+              "status": "passed",
+              "steps": []
+            },
+            {
+              "title": "Expect \"toBeVisible\"",
+              "category": "expect",
+              "durationMs": 368,
+              "status": "passed",
+              "steps": []
+            },
+            {
+              "title": "After Hooks",
+              "category": "hook",
+              "durationMs": 157,
+              "status": "passed",
+              "steps": [
+                {
+                  "title": "Fixture \"page\"",
+                  "category": "fixture",
+                  "durationMs": 0,
+                  "status": "passed",
+                  "steps": []
+                },
+                {
+                  "title": "Fixture \"context\"",
+                  "category": "fixture",
+                  "durationMs": 83,
+                  "status": "passed",
+                  "steps": [
+                    {
+                      "title": "Close context",
+                      "category": "pw:api",
+                      "durationMs": 73,
+                      "status": "passed",
+                      "steps": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "logs": [],
+          "attachments": [
+            {
+              "type": "image/png",
+              "name": "screenshot.png",
+              "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-0-screenshot.png",
+              "size": "94.8 KB"
+            },
+            {
+              "type": "video/webm",
+              "name": "video.webm",
+              "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-1-video.webm",
+              "size": "184.5 KB"
             }
           ]
         }
@@ -815,13 +283,13 @@
   ],
   "history": [
     {
-      "runId": "run-mwmdmcfm",
-      "timestamp": "2026-11-18T17:09:38.290Z",
+      "runId": "run-mwmvnhpi",
+      "timestamp": "2026-11-19T01:34:24.870Z",
       "environment": "Local (C:\\playwright\\tests)",
-      "totalDurationMs": 9514,
+      "totalDurationMs": 1977,
       "stats": {
-        "total": 6,
-        "passed": 6,
+        "total": 2,
+        "passed": 2,
         "failed": 0,
         "flaky": 0,
         "skipped": 0,
@@ -829,705 +297,44 @@
       },
       "projects": [
         {
-          "name": "firefox",
-          "tests": 2,
-          "passed": 2,
-          "failed": 0,
-          "duration": 5706
-        },
-        {
-          "name": "webkit",
-          "tests": 2,
-          "passed": 2,
-          "failed": 0,
-          "duration": 3582
-        },
-        {
           "name": "chromium",
           "tests": 2,
           "passed": 2,
           "failed": 0,
-          "duration": 17143
+          "duration": 2321
         }
       ],
       "suites": [
         {
           "file": "example.spec.ts",
-          "project": "firefox",
-          "duration": 5706,
-          "status": "passed",
-          "tests": [
-            {
-              "id": "a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5-firefox",
-              "title": "has title",
-              "status": "passed",
-              "durationMs": 2604,
-              "retries": 0,
-              "browser": "firefox",
-              "steps": [
-                {
-                  "title": "Before Hooks",
-                  "category": "hook",
-                  "durationMs": 1604,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"browser\"",
-                      "category": "fixture",
-                      "durationMs": 594,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Launch browser",
-                          "category": "pw:api",
-                          "durationMs": 591,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 145,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create context",
-                          "category": "pw:api",
-                          "durationMs": 140,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 831,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create page",
-                          "category": "pw:api",
-                          "durationMs": 830,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Navigate",
-                  "category": "pw:api",
-                  "durationMs": 1102,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Expect \"toHaveTitle\"",
-                  "category": "expect",
-                  "durationMs": 125,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "After Hooks",
-                  "category": "hook",
-                  "durationMs": 402,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 0,
-                      "status": "passed",
-                      "steps": []
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 280,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Close context",
-                          "category": "pw:api",
-                          "durationMs": 268,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "logs": [],
-              "attachments": [
-                {
-                  "type": "image/png",
-                  "name": "screenshot.png",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5-firefox-0-screenshot.png",
-                  "size": "121.0 KB"
-                },
-                {
-                  "type": "video/webm",
-                  "name": "video.webm",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5-firefox-1-video.webm",
-                  "size": "130.2 KB"
-                }
-              ]
-            },
-            {
-              "id": "a30a6eba6312f6b87ea5-bfe080d6fe34297f494c-firefox",
-              "title": "get started link",
-              "status": "passed",
-              "durationMs": 3102,
-              "retries": 0,
-              "browser": "firefox",
-              "steps": [
-                {
-                  "title": "Before Hooks",
-                  "category": "hook",
-                  "durationMs": 2019,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"browser\"",
-                      "category": "fixture",
-                      "durationMs": 1056,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Launch browser",
-                          "category": "pw:api",
-                          "durationMs": 1054,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 151,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create context",
-                          "category": "pw:api",
-                          "durationMs": 148,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 797,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create page",
-                          "category": "pw:api",
-                          "durationMs": 796,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Navigate",
-                  "category": "pw:api",
-                  "durationMs": 750,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Click",
-                  "category": "pw:api",
-                  "durationMs": 491,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Expect \"toBeVisible\"",
-                  "category": "expect",
-                  "durationMs": 521,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "After Hooks",
-                  "category": "hook",
-                  "durationMs": 387,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 0,
-                      "status": "passed",
-                      "steps": []
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 167,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Close context",
-                          "category": "pw:api",
-                          "durationMs": 157,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "logs": [],
-              "attachments": [
-                {
-                  "type": "image/png",
-                  "name": "screenshot.png",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-bfe080d6fe34297f494c-firefox-0-screenshot.png",
-                  "size": "74.2 KB"
-                },
-                {
-                  "type": "video/webm",
-                  "name": "video.webm",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-bfe080d6fe34297f494c-firefox-1-video.webm",
-                  "size": "260.3 KB"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "file": "example.spec.ts",
-          "project": "webkit",
-          "duration": 3582,
-          "status": "passed",
-          "tests": [
-            {
-              "id": "a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2-webkit",
-              "title": "has title",
-              "status": "passed",
-              "durationMs": 1525,
-              "retries": 0,
-              "browser": "webkit",
-              "steps": [
-                {
-                  "title": "Before Hooks",
-                  "category": "hook",
-                  "durationMs": 317,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"browser\"",
-                      "category": "fixture",
-                      "durationMs": 70,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Launch browser",
-                          "category": "pw:api",
-                          "durationMs": 69,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 18,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create context",
-                          "category": "pw:api",
-                          "durationMs": 16,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 217,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create page",
-                          "category": "pw:api",
-                          "durationMs": 216,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Navigate",
-                  "category": "pw:api",
-                  "durationMs": 850,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Expect \"toHaveTitle\"",
-                  "category": "expect",
-                  "durationMs": 28,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "After Hooks",
-                  "category": "hook",
-                  "durationMs": 414,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 0,
-                      "status": "passed",
-                      "steps": []
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 120,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Close context",
-                          "category": "pw:api",
-                          "durationMs": 113,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "logs": [],
-              "attachments": [
-                {
-                  "type": "image/png",
-                  "name": "screenshot.png",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2-webkit-0-screenshot.png",
-                  "size": "223.0 KB"
-                },
-                {
-                  "type": "video/webm",
-                  "name": "video.webm",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2-webkit-1-video.webm",
-                  "size": "100.4 KB"
-                }
-              ]
-            },
-            {
-              "id": "a30a6eba6312f6b87ea5-1eb159041d56409ed83c-webkit",
-              "title": "get started link",
-              "status": "passed",
-              "durationMs": 2057,
-              "retries": 0,
-              "browser": "webkit",
-              "steps": [
-                {
-                  "title": "Before Hooks",
-                  "category": "hook",
-                  "durationMs": 230,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"browser\"",
-                      "category": "fixture",
-                      "durationMs": 40,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Launch browser",
-                          "category": "pw:api",
-                          "durationMs": 38,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 18,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create context",
-                          "category": "pw:api",
-                          "durationMs": 15,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 158,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create page",
-                          "category": "pw:api",
-                          "durationMs": 157,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Navigate",
-                  "category": "pw:api",
-                  "durationMs": 1138,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Click",
-                  "category": "pw:api",
-                  "durationMs": 167,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Expect \"toBeVisible\"",
-                  "category": "expect",
-                  "durationMs": 274,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "After Hooks",
-                  "category": "hook",
-                  "durationMs": 298,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 1,
-                      "status": "passed",
-                      "steps": []
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 76,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Close context",
-                          "category": "pw:api",
-                          "durationMs": 71,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "logs": [],
-              "attachments": [
-                {
-                  "type": "image/png",
-                  "name": "screenshot.png",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-1eb159041d56409ed83c-webkit-0-screenshot.png",
-                  "size": "192.7 KB"
-                },
-                {
-                  "type": "video/webm",
-                  "name": "video.webm",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-1eb159041d56409ed83c-webkit-1-video.webm",
-                  "size": "191.3 KB"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "file": "example.spec.ts",
           "project": "chromium",
-          "duration": 17143,
+          "duration": 2321,
           "status": "passed",
           "tests": [
-            {
-              "id": "a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium",
-              "title": "get started link",
-              "status": "passed",
-              "durationMs": 8347,
-              "retries": 0,
-              "browser": "chromium",
-              "steps": [
-                {
-                  "title": "Before Hooks",
-                  "category": "hook",
-                  "durationMs": 386,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"browser\"",
-                      "category": "fixture",
-                      "durationMs": 117,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Launch browser",
-                          "category": "pw:api",
-                          "durationMs": 114,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 11,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create context",
-                          "category": "pw:api",
-                          "durationMs": 8,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    },
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 240,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Create page",
-                          "category": "pw:api",
-                          "durationMs": 240,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Navigate",
-                  "category": "pw:api",
-                  "durationMs": 7666,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Click",
-                  "category": "pw:api",
-                  "durationMs": 121,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "Expect \"toBeVisible\"",
-                  "category": "expect",
-                  "durationMs": 106,
-                  "status": "passed",
-                  "steps": []
-                },
-                {
-                  "title": "After Hooks",
-                  "category": "hook",
-                  "durationMs": 201,
-                  "status": "passed",
-                  "steps": [
-                    {
-                      "title": "Fixture \"page\"",
-                      "category": "fixture",
-                      "durationMs": 0,
-                      "status": "passed",
-                      "steps": []
-                    },
-                    {
-                      "title": "Fixture \"context\"",
-                      "category": "fixture",
-                      "durationMs": 86,
-                      "status": "passed",
-                      "steps": [
-                        {
-                          "title": "Close context",
-                          "category": "pw:api",
-                          "durationMs": 77,
-                          "status": "passed",
-                          "steps": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "logs": [],
-              "attachments": [
-                {
-                  "type": "image/png",
-                  "name": "screenshot.png",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-0-screenshot.png",
-                  "size": "94.1 KB"
-                },
-                {
-                  "type": "video/webm",
-                  "name": "video.webm",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-1-video.webm",
-                  "size": "224.4 KB"
-                }
-              ]
-            },
             {
               "id": "a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium",
               "title": "has title",
               "status": "passed",
-              "durationMs": 8796,
+              "durationMs": 1006,
               "retries": 0,
               "browser": "chromium",
               "steps": [
                 {
                   "title": "Before Hooks",
                   "category": "hook",
-                  "durationMs": 428,
+                  "durationMs": 259,
                   "status": "passed",
                   "steps": [
                     {
                       "title": "Fixture \"browser\"",
                       "category": "fixture",
-                      "durationMs": 121,
+                      "durationMs": 98,
                       "status": "passed",
                       "steps": [
                         {
                           "title": "Launch browser",
                           "category": "pw:api",
-                          "durationMs": 119,
+                          "durationMs": 93,
                           "status": "passed",
                           "steps": []
                         }
@@ -1542,7 +349,7 @@
                         {
                           "title": "Create context",
                           "category": "pw:api",
-                          "durationMs": 9,
+                          "durationMs": 8,
                           "status": "passed",
                           "steps": []
                         }
@@ -1551,13 +358,13 @@
                     {
                       "title": "Fixture \"page\"",
                       "category": "fixture",
-                      "durationMs": 281,
+                      "durationMs": 131,
                       "status": "passed",
                       "steps": [
                         {
                           "title": "Create page",
                           "category": "pw:api",
-                          "durationMs": 280,
+                          "durationMs": 130,
                           "status": "passed",
                           "steps": []
                         }
@@ -1568,21 +375,21 @@
                 {
                   "title": "Navigate",
                   "category": "pw:api",
-                  "durationMs": 8203,
+                  "durationMs": 536,
                   "status": "passed",
                   "steps": []
                 },
                 {
                   "title": "Expect \"toHaveTitle\"",
                   "category": "expect",
-                  "durationMs": 74,
+                  "durationMs": 70,
                   "status": "passed",
                   "steps": []
                 },
                 {
                   "title": "After Hooks",
                   "category": "hook",
-                  "durationMs": 225,
+                  "durationMs": 246,
                   "status": "passed",
                   "steps": [
                     {
@@ -1595,13 +402,13 @@
                     {
                       "title": "Fixture \"context\"",
                       "category": "fixture",
-                      "durationMs": 68,
+                      "durationMs": 85,
                       "status": "passed",
                       "steps": [
                         {
                           "title": "Close context",
                           "category": "pw:api",
-                          "durationMs": 59,
+                          "durationMs": 76,
                           "status": "passed",
                           "steps": []
                         }
@@ -1615,14 +422,143 @@
                 {
                   "type": "image/png",
                   "name": "screenshot.png",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-0-screenshot.png",
+                  "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-0-screenshot.png",
                   "size": "298.9 KB"
                 },
                 {
                   "type": "video/webm",
                   "name": "video.webm",
-                  "url": "/artifacts/run-mwmdmcfm/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-1-video.webm",
-                  "size": "172.9 KB"
+                  "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-b06063a3e613764d08f8-chromium-1-video.webm",
+                  "size": "110.3 KB"
+                }
+              ]
+            },
+            {
+              "id": "a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium",
+              "title": "get started link",
+              "status": "passed",
+              "durationMs": 1315,
+              "retries": 0,
+              "browser": "chromium",
+              "steps": [
+                {
+                  "title": "Before Hooks",
+                  "category": "hook",
+                  "durationMs": 253,
+                  "status": "passed",
+                  "steps": [
+                    {
+                      "title": "Fixture \"browser\"",
+                      "category": "fixture",
+                      "durationMs": 118,
+                      "status": "passed",
+                      "steps": [
+                        {
+                          "title": "Launch browser",
+                          "category": "pw:api",
+                          "durationMs": 116,
+                          "status": "passed",
+                          "steps": []
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Fixture \"context\"",
+                      "category": "fixture",
+                      "durationMs": 13,
+                      "status": "passed",
+                      "steps": [
+                        {
+                          "title": "Create context",
+                          "category": "pw:api",
+                          "durationMs": 9,
+                          "status": "passed",
+                          "steps": []
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Fixture \"page\"",
+                      "category": "fixture",
+                      "durationMs": 109,
+                      "status": "passed",
+                      "steps": [
+                        {
+                          "title": "Create page",
+                          "category": "pw:api",
+                          "durationMs": 107,
+                          "status": "passed",
+                          "steps": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Navigate",
+                  "category": "pw:api",
+                  "durationMs": 523,
+                  "status": "passed",
+                  "steps": []
+                },
+                {
+                  "title": "Click",
+                  "category": "pw:api",
+                  "durationMs": 136,
+                  "status": "passed",
+                  "steps": []
+                },
+                {
+                  "title": "Expect \"toBeVisible\"",
+                  "category": "expect",
+                  "durationMs": 368,
+                  "status": "passed",
+                  "steps": []
+                },
+                {
+                  "title": "After Hooks",
+                  "category": "hook",
+                  "durationMs": 157,
+                  "status": "passed",
+                  "steps": [
+                    {
+                      "title": "Fixture \"page\"",
+                      "category": "fixture",
+                      "durationMs": 0,
+                      "status": "passed",
+                      "steps": []
+                    },
+                    {
+                      "title": "Fixture \"context\"",
+                      "category": "fixture",
+                      "durationMs": 83,
+                      "status": "passed",
+                      "steps": [
+                        {
+                          "title": "Close context",
+                          "category": "pw:api",
+                          "durationMs": 73,
+                          "status": "passed",
+                          "steps": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "logs": [],
+              "attachments": [
+                {
+                  "type": "image/png",
+                  "name": "screenshot.png",
+                  "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-0-screenshot.png",
+                  "size": "94.8 KB"
+                },
+                {
+                  "type": "video/webm",
+                  "name": "video.webm",
+                  "url": "/artifacts/run-mwmvnhpi/a30a6eba6312f6b87ea5-274e97907a6e3638a22f-chromium-1-video.webm",
+                  "size": "184.5 KB"
                 }
               ]
             }
