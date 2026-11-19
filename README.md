@@ -1,18 +1,18 @@
-# Playwright Runtime Dashboard (`mtricbase`)
+# Playwright Quality Dashboard
 
-A clean, modern React + TypeScript + Tailwind CSS dashboard for visualizing and inspecting **Playwright E2E test execution telemetry** — including nested execution steps, last-5-runs history, inline screenshots, and playable execution videos.
+A clean, modern React + TypeScript + Tailwind CSS dashboard for visualizing and inspecting **Playwright end-to-end test results** — designed to be intuitive for both engineering and product teams, with step-by-step activity, last-5-runs history, inline screenshots, and playable execution videos.
 
 ---
 
 ## Features
 
 - **Overview & Metrics** — Total tests, passed, failed, flaky, skipped, duration, success rate, segmented status breakdown, and per-browser/project summaries (`chromium`, `firefox`, `webkit`, etc.).
-- **Last 5 Runs History** — Switch between the 5 most recent test runs from both the **Overview** and **Test Explorer** tabs, with automatic history persistence and artifact cleanup.
-- **Test Execution Steps** — Displays nested Playwright API steps, hooks, assertions, and `test.step(...)` blocks both **inline** in the Test Explorer and in the detailed inspection modal.
+- **Last 5 Runs History** — Switch between the 5 most recent test runs from both the **Overview** and **Test Results** tabs, with automatic history persistence and artifact cleanup.
+- **Test Execution Steps** — Displays nested Playwright API steps, hooks, assertions, and `test.step(...)` blocks both **inline** in the Test Results tab and in the detailed inspection modal.
 - **Screenshots & Videos** — Renders inline screenshot previews (`<img>` + Full Size / Download) and embedded HTML5 `<video controls>` players for `.webm` / `.mp4` recordings, plus media count badges on test rows.
-- **Interactive Test Explorer** — Search by test name or spec file, filter by status (`passed`, `failed`, `flaky`, `skipped`) and Playwright project, and inspect failure stack traces and console logs.
-- **Live Sync** — Click **Sync Test Results** to fetch the latest `playwright-results.json` without restarting the dev server.
-- **Dark & Light Mode** — Instant theme toggle in the top navbar.
+- **Interactive Test Results** — Search by test name or spec file, filter by status (`passed`, `failed`, `flaky`, `skipped`) and Playwright project, and inspect failure stack traces and console logs.
+- **Live Refresh** — Click **Refresh Results** to fetch the latest `playwright-results.json` without restarting the dev server.
+- **Dark & Light Mode** — Instant theme toggle in the top navbar (saved automatically).
 
 ---
 
@@ -32,11 +32,23 @@ playwright-dashboard/
 ├── public/
 │   ├── artifacts/                  # Copied screenshots & videos per run (gitignored)
 │   └── data/
-│       └── playwright-results.json # Live-fetched report used by "Sync Test Results"
+│       └── playwright-results.json # Live-fetched report used by "Refresh Results"
 ├── src/
+│   ├── components/
+│   │   ├── ErrorBoundary.tsx       # Graceful recovery UI for runtime errors
+│   │   ├── MediaCard.tsx           # Shared screenshot & video viewer card
+│   │   ├── SuiteMediaModal.tsx     # Suite-level screenshots & videos modal
+│   │   └── TestDetailsModal.tsx    # Detailed test step, media & error modal
+│   ├── constants/
+│   │   └── reporterSnippets.ts     # Copyable Playwright config & reporter templates
 │   ├── data/
-│   │   └── playwright-results.json # Bundled initial report
-│   ├── App.js                      # Root entry passing resultsData into dashboard
+│   │   ├── playwright-results.json # Bundled initial report
+│   │   └── sampleRunData.ts        # Fallback demo run when no report is loaded
+│   ├── types/
+│   │   └── dashboard.ts            # Shared TypeScript interfaces
+│   ├── utils/
+│   │   └── playwrightParser.ts     # Report normalizer, history & media helpers
+│   ├── App.js                      # Root entry with ErrorBoundary
 │   ├── index.css                   # Tailwind CSS directives
 │   └── playwright_runtime_dashboard.tsx
 ├── tailwind.config.js
@@ -100,7 +112,7 @@ export default defineConfig({
 
 ### Step 2: Add `reporters/mtricbase-reporter.ts`
 
-Create `reporters/mtricbase-reporter.ts` in your Playwright project (also available via the **Copy Reporter** button inside the dashboard's **Integration & Live Run** tab):
+Create `reporters/mtricbase-reporter.ts` in your Playwright project (also available via the **Copy Reporter** button inside the dashboard's **Setup Guide** tab):
 
 ```ts
 import fs from 'fs';
@@ -349,8 +361,8 @@ export default MtricbaseReporter;
    ```bash
    npx playwright test
    ```
-2. Open the dashboard at **http://localhost:3000** and click **Sync Test Results** in the top-right bar.
-3. Use the **Recent Test Runs (N / 5)** strip to switch between historical runs, expand **steps** inline in **Test Explorer**, or click any test to inspect full steps, logs, screenshots, and video playback.
+2. Open the dashboard at **http://localhost:3000** and click **Refresh Results** in the top-right bar.
+3. Use the **Recent Test Runs (N of 5)** strip to switch between historical runs, expand **steps** inline in **Test Results**, click **Screenshots** / **Videos** on any suite row, or click any test to inspect full details.
 
 ---
 
@@ -358,6 +370,6 @@ export default MtricbaseReporter;
 
 | Issue | Cause & Fix |
 | --- | --- |
-| Steps say *"No step timeline recorded"* | Playwright's built-in `json` reporter omits `result.steps`. Ensure `playwright.config.ts` uses `./reporters/mtricbase-reporter.ts` and does not overwrite `playwright-results.json` with the built-in `json` reporter. |
+| Steps say *"No step details were recorded"* | Playwright's built-in `json` reporter omits `result.steps`. Ensure `playwright.config.ts` uses `./reporters/mtricbase-reporter.ts` and does not overwrite `playwright-results.json` with the built-in `json` reporter. |
 | Screenshots or videos don't load | Browsers block `file://` paths from `http://localhost:3000`. Make sure `mtricbase-reporter.ts` copies media to `public/artifacts/<runId>/` and check that `screenshot` / `video` are enabled in `playwright.config.ts`. |
-| New test run doesn't appear | Click **Sync Test Results** in the navbar to re-fetch `/data/playwright-results.json` with cache busting. |
+| New test run doesn't appear | Click **Refresh Results** in the navbar to re-fetch `/data/playwright-results.json` with cache busting. |
